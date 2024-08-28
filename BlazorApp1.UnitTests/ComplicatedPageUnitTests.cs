@@ -18,7 +18,6 @@ public class ComplicatedPageUnitTests : TestContext
             .Setup(f => f.InitializeFirstSelectionAsync(It.IsAny<int>()))
             .Returns(Task.CompletedTask);
 
-        // That would be nice kindahow
         ComponentFactories.Add(complicatedSelectMock.Object);
 
         // Act
@@ -41,7 +40,6 @@ public class ComplicatedPageUnitTests : TestContext
             .Setup(f => f.InitializeFirstSelectionAsync(It.IsAny<int>()))
             .Returns(Task.CompletedTask);
 
-        // That would be nice kindahow
         ComponentFactories.Add(complicatedSelectMock.Object);
 
         // Act
@@ -51,5 +49,20 @@ public class ComplicatedPageUnitTests : TestContext
         // Check the communication between ComplicatedPage and ComplicatedSelect
         complicatedSelectMock
             .Verify(f => f.InitializeFirstSelectionAsync(It.IsAny<int>()), Times.Once);
+    }
+
+    [Fact()]
+    public void Test_MockAll()
+    {
+        // Explanation: This doesn't work, is I receive the error "System.InvalidCastException : Unable to cast object of type 'Bunit.TestDoubles.Stub`1[BlazorApp1.Components.ComplicatedSelect]' to type 'BlazorApp1.Components.ComplicatedSelect'."
+
+        // Arrange
+        ComponentFactories.AddStub(type => type != typeof(ComplicatedPage));
+
+        // Act
+        RenderComponent<ComplicatedPage>();
+
+        // Assert
+        // Check the communication between ComplicatedPage and ComplicatedSelect
     }
 }
