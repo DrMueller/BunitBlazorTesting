@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<UserSecretsId>4d47930c-fec8-4298-a584-dc7d5adcd15d</UserSecretsId>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="xunit.runner.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="xunit.runner.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FluentAssertions" Version="6.12.0" />
+		<PackageReference Include="bunit" Version="1.27.17" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
+		<PackageReference Include="xunit" Version="2.7.1" />
+		<PackageReference Include="xunit.analyzers" Version="1.12.0" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.5.8">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Moq" Version="4.20.70" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BlazorApp1\BlazorApp1.csproj" />
+	</ItemGroup>
+
+</Project>
